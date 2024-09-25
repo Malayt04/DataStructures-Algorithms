@@ -30,6 +30,7 @@
 ```
 
 - [Maximum Number of Occurrences of a Substring](https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/) | Strings
+
   ```
   class Solution {
     public int maxFreq(String s, int maxLetters, int minSize, int maxSize) 
@@ -54,10 +55,12 @@
         return hs.size() <= maxLetters && cur.length()<=maxsize;
     }
 }
+
 ```
 
 
 - [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) | Dynamic Programming
+
 
 ```
   class Solution {
