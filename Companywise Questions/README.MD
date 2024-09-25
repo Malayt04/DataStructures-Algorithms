@@ -5,8 +5,7 @@
 - [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/) | Stack
   
 ```
-
-  class Solution {
+    class Solution {
     public String removeDuplicates(String s) {
         Stack<Character> stack=new Stack<>();
          stack.push(s.charAt(0));
@@ -31,7 +30,8 @@
 
 - [Maximum Number of Occurrences of a Substring](https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/) | Strings
 
-  ```
+
+```
   class Solution {
     public int maxFreq(String s, int maxLetters, int minSize, int maxSize) 
     {
@@ -61,8 +61,8 @@
 
 - [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) | Dynamic Programming
 
-
 ```
+
   class Solution {
 
     public int longestPalindromeSubseq(String s) {
