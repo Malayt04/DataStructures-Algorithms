@@ -54,9 +54,11 @@
         return hs.size() <= maxLetters && cur.length()<=maxsize;
     }
 }
+```
 
-  ```
+
 - [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) | Dynamic Programming
+
 ```
   class Solution {
 
