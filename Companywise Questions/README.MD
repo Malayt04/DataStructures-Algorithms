@@ -3,8 +3,98 @@
 ## Adobe
 
 - [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/) | Stack
+  
+```
+
+  class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> stack=new Stack<>();
+         stack.push(s.charAt(0));
+        for(int i=1;i<s.length();i++){
+           
+            if(!stack.isEmpty() && s.charAt(i)==stack.peek()){
+                stack.pop();
+            }else{
+                stack.push(s.charAt(i));
+            }
+        }
+        StringBuilder sb=new StringBuilder();
+        for(char a:stack){
+            sb.append(a);
+        }
+
+        return sb.toString() ;
+    }
+}
+
+```
+
 - [Maximum Number of Occurrences of a Substring](https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/) | Strings
+  ```
+  class Solution {
+    public int maxFreq(String s, int maxLetters, int minSize, int maxSize) 
+    {
+        if(s == null || s.length() == 0 || maxLetters == 0) return 0;
+        HashMap<String, Integer> hm = new HashMap<>();
+        int max = 0;
+        for(int i = 0; i < s.length() - minSize + 1; i++) {
+            String cur = s.substring(i, i + minSize);
+            if(isValid(cur, maxLetters,maxSize)) {
+                hm.put(cur, hm.getOrDefault(cur, 0) + 1);
+                max = Math.max(max, hm.get(cur));
+            }
+        }
+        return max;
+    }
+	
+    boolean isValid(String cur, int maxLetters,int maxsize) 
+    {
+        HashSet<Character> hs = new HashSet<>();
+        for(char c: cur.toCharArray()) hs.add(c);
+        return hs.size() <= maxLetters && cur.length()<=maxsize;
+    }
+}
+
+  ```
 - [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) | Dynamic Programming
+```
+  class Solution {
+
+    public int longestPalindromeSubseq(String s) {
+        int n = s.length();
+        int [][] memo = new int[n][n];
+
+        for(int i = 0; i < n; i++){
+            Arrays.fill(memo[i], -1);
+        }
+        return helper(s, 0, n - 1, memo);
+    }
+
+    public int helper(String s, int left, int right, int[][] memo) {
+        if (left > right) {
+            return 0;
+        }
+        
+        if (left == right) {
+            return 1;
+        }
+
+        if (memo[left][right] != -1) {
+            return memo[left][right];
+        }
+
+        if (s.charAt(left) == s.charAt(right)) {
+            memo[left][right] = 2 + helper(s, left + 1, right - 1,memo);
+        } else {
+            memo[left][right] = Math.max(helper(s, left + 1, right, memo), helper(s, left, right - 1,memo));
+        }
+
+        return memo[left][right];
+    }
+}
+
+```
+
 - [Intersecting Chords in a Circle](https://www.interviewbit.com/problems/intersecting-chords-in-a-circle/) | Dynamic Programming
 - [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | Dikstra, Graph, Bellman Ford
 - [Permutations](https://leetcode.com/problems/permutations/) | Backtracking
